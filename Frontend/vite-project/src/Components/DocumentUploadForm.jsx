@@ -52,9 +52,7 @@ const DocumentUploadForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission logic here
     toast.info("Form submitted! (This is a placeholder, no backend connection)")
-    // Reset form data
     setFormData({
       name: "",
       email: "",
@@ -75,12 +73,52 @@ const DocumentUploadForm = () => {
   }
 
   return (
-    <div className="w-screen h-screen items-center p-4">
-      <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl mb-4 text-center">Document Upload Form</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        width: "100vw",
+        backgroundColor: "white",
+        padding: "2rem",
+        overflowX: "hidden", // Prevent horizontal scrolling
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1000px",
+          backgroundColor: "#fff",
+          padding: "2rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          borderRadius: "0.5rem",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+          boxSizing: "border-box",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "1.75rem",
+            textAlign: "left",
+            color: "#333",
+            marginTop: "2rem",
+          }}
+        >
+          Document Upload Form
+        </h2>
+        <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label
+              htmlFor="name"
+              style={{
+                display: "block",
+                marginBottom: "0.5rem",
+                color: "#555",
+              }}
+            >
               Name
             </label>
             <input
@@ -89,13 +127,26 @@ const DocumentUploadForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                border: "1px solid #ccc",
+                borderRadius: "0.25rem",
+                boxSizing: "border-box",
+              }}
               required
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label
+              htmlFor="email"
+              style={{
+                display: "block",
+                marginBottom: "0.5rem",
+                color: "#555",
+              }}
+            >
               Email
             </label>
             <input
@@ -104,13 +155,26 @@ const DocumentUploadForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                border: "1px solid #ccc",
+                borderRadius: "0.25rem",
+                boxSizing: "border-box",
+              }}
               required
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="phone" className="block text-gray-700">
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label
+              htmlFor="phone"
+              style={{
+                display: "block",
+                marginBottom: "0.5rem",
+                color: "#555",
+              }}
+            >
               Phone Number
             </label>
             <input
@@ -119,7 +183,13 @@ const DocumentUploadForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                border: "1px solid #ccc",
+                borderRadius: "0.25rem",
+                boxSizing: "border-box",
+              }}
               required
             />
           </div>
@@ -128,39 +198,86 @@ const DocumentUploadForm = () => {
             "collegeId",
             "aadhaarCard",
             "resume",
-            "tenthCertificate",
-            "twelfthCertificate",
+            "10th Certificate",
+            "12th Certificate",
           ].map((fileName) => (
-            <div key={fileName} className="mb-4">
-              <label htmlFor={fileName} className="block text-gray-700">
-                {fileName
-                  .replace(/([A-Z])/g, " $1")
-                  .replace(/^./, (str) => str.toUpperCase())}
-              </label>
-              <input
-                type="file"
-                id={fileName}
-                name={fileName}
-                onChange={handleFileChange}
-                className="w-full p-2 border border-gray-300 rounded"
-              />
-              <button
-                type="button"
-                onClick={() => handleVerify(fileName)}
-                className="ml-2 bg-green-600 text-white px-4 py-2 rounded-lg"
-              >
-                Verify
-              </button>
-              {uploadedFiles[fileName] && (
-                <span className="ml-2 text-green-600">Verified</span>
-              )}
+            <div
+              key={fileName}
+              style={{
+                marginBottom: "1.5rem",
+                display: "flex",
+                alignItems: "end",
+                justifyContent: "flex-start",
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <label
+                  htmlFor={fileName}
+                  style={{
+                    display: "block",
+                    marginBottom: "0.5rem",
+                    color: "#555",
+                  }}
+                >
+                  {fileName
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())}
+                </label>
+                <input
+                  type="file"
+                  id={fileName}
+                  name={fileName}
+                  onChange={handleFileChange}
+                  style={{
+                    width: "100%",
+                    padding: "0.75rem",
+                    border: "1px solid #ccc",
+                    borderRadius: "0.25rem",
+                    boxSizing: "border-box",
+                  }}
+                />
+              </div>
+              <div style={{ marginLeft: "2rem" }}>
+                <button
+                  type="button"
+                  onClick={() => handleVerify(fileName)}
+                  style={{
+                    backgroundColor: "#38a169",
+                    color: "#fff",
+                    padding: "0.75rem 1rem",
+                    borderRadius: "0.25rem",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  Verify
+                </button>
+                {uploadedFiles[fileName] && (
+                  <span
+                    style={{
+                      marginLeft: "0.5rem",
+                      color: "#38a169",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Verified
+                  </span>
+                )}
+              </div>
             </div>
           ))}
 
-          <div className="text-center">
+          <div style={{ textAlign: "left" }}>
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+              style={{
+                backgroundColor: "#3182ce",
+                color: "#fff",
+                padding: "0.75rem 1.5rem",
+                borderRadius: "0.25rem",
+                border: "none",
+                cursor: "pointer",
+              }}
             >
               Submit
             </button>
