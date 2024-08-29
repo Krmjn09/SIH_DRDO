@@ -45,7 +45,7 @@ const Aadhar = () => {
   return (
     <div className="bg-gray-800 p-8 rounded-lg shadow-lg mb-6">
       <h2 className="text-3xl font-bold text-white mb-6 text-center">
-        Submit Aadhar Card
+        Verify Aadhar Card
       </h2>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
@@ -59,9 +59,9 @@ const Aadhar = () => {
         </div>
         <button
           type="submit"
-          className="w-full py-3 mt-4 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition duration-300"
+          className="w-full py-3 mt-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
         >
-          Submit Aadhar Card
+          Verify Aadhar Card
         </button>
       </form>
       <ToastContainer />

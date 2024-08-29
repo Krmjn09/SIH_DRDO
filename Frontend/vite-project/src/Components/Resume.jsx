@@ -42,7 +42,7 @@ const ResumeForm = () => {
   return (
     <div className="bg-gray-800 p-8 rounded-lg shadow-lg mb-6">
       <h2 className="text-3xl font-bold text-white mb-6 text-center">
-        Submit Resume
+        Verify Resume
       </h2>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
@@ -56,9 +56,9 @@ const ResumeForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full py-3 mt-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300"
+          className="w-full py-3 mt-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
         >
-          Submit Resume
+          Verify Resume
         </button>
       </form>
       <ToastContainer />
